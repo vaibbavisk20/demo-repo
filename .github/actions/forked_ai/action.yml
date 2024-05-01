@@ -81,7 +81,7 @@ runs:
     - name: 'Update bot_config.yaml'
       uses: fjogeleit/yaml-update-action@main
       with:
-        valueFile: 'airepo/app/backend/bot_config.yaml'
+        valueFile: 'airepo/AOAISearchDemo/app/backend/bot_config.yaml'
         commitChange: false
         changes: |
           {
@@ -98,7 +98,7 @@ runs:
     - name: 'Update azure.yaml to skip Connect-AzAccount step'
       uses: fjogeleit/yaml-update-action@main
       with:
-        valueFile: 'airepo/azure.yaml'
+        valueFile: 'airepo/AOAISearchDemo/azure.yaml'
         commitChange: false
         changes: |
           {
@@ -114,7 +114,7 @@ runs:
       with:
         inlineScript: |
           azd auth login --client-id ${{ inputs.client-id }} --federated-credential-provider "github" --tenant-id ${{ inputs.tenant-id }}
-          cd airepo
+          cd airepo/AOAISearchDemo
           Get-AzAccessToken -ResourceUrl "https://vault.azure.net"
           Install-Module -Name Az -Force -RequiredVersion 11.5.0
           $PSVersionTable
