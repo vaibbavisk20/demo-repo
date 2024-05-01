@@ -99,12 +99,12 @@ runs:
           Get-AzAccessToken -ResourceUrl "https://vault.azure.net"
           Install-Module -Name Az -Force -RequiredVersion 11.5.0
           $PSVersionTable
-          azd env new v2-vsk51
-          azd env set AZURE_ENV_NAME "v2-vsk51"
+          azd env new vsk-ai-env
+          azd env set AZURE_ENV_NAME "vsk-ai-env"
           azd env set AZURE_LOCATION "eastus"
           azd env set AZURE_OPENAI_LOCATION "southcentralus"
           azd env set AZURE_SUBSCRIPTION_ID ${{ inputs.subscription-id }}
           azd env set AZURE_PRINCIPAL_ID ${{ inputs.principal-id }}
           Get-AzContext -ListAvailable
-          azd up --no-prompt -e v2-vsk51
+          azd up --no-prompt -e vsk-ai-env
         azPSVersion: "latest"
