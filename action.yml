@@ -96,7 +96,7 @@ runs:
         inlineScript: |
           azd auth login --client-id ${{ inputs.client-id }} --federated-credential-provider "github" --tenant-id ${{ inputs.tenant-id }}
           cd airepo/AOAISearchDemo
-          Get-AzAccessToken -ResourceUrl "https://vault.azure.net" --oup
+          Get-AzAccessToken -ResourceUrl "https://vault.azure.net"
           Install-Module -Name Az -Force -RequiredVersion 11.5.0
           $PSVersionTable
           azd env new v2-vsk51
