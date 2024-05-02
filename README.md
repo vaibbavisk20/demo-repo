@@ -2,15 +2,14 @@
 
 ## Overview
 
-This project provides a ChatGPT-like experience tailored specifically for Surface Devices. It utilizes an external repository to reference the template. This specialized assistant can provide detailed information on Surface Devices, including specifications, troubleshooting, and warranty details. Additionally, it addresses inquiries related to sales, availability, and current trends.
+This project provides a Chat-Completion experience tailored specifically for Information about Surface Devices. It utilizes an external repository to reference the template. This specialized assistant can provide detailed information on Surface Devices, including specifications, troubleshooting, and warranty details. Additionally, it addresses inquiries related to sales, availability, and current trends.
 
 [For more information on this template](https://github.com/Azure-Samples/openai/tree/main/End_to_end_Solutions/AOAISearchDemo)
 
-**This documentation is for v2 of Azure/Sample-Chat-Completion-OpenAI-Infra**
+**Note**: Please install the [Configure-Azure-Settings](https://github.com/apps/configure-azure-settings) app from the GitHub Marketplace to populate the below inputs as secrets in your repository
 
 ## Inputs
 
-Please install the Azure OIDC app from the GitHub Marketplace to populate the below inputs as secrets in your repo
 - **client-id** (required): Client ID used for Azure login.
 - **tenant-id** (required): Tenant ID used for Azure login.
 - **subscription-id** (required): Azure subscription ID used with the `az login`.
@@ -29,7 +28,7 @@ Use the name field from this link corresponding to desired location. [Azure Regi
 Create this workflow in your repo on this path: `.github/workflows/workflow_file.yml`
 
 ```yaml
-name: Workflow to deploy AI Powered Chat project to Azure
+name: Workflow to deploy AI Powered Chat Completion infra to Azure
 
 on:
   push:
@@ -56,7 +55,7 @@ jobs:
         - name: Checkout master
           uses: actions/checkout@v3
           
-        - name: Deploy a Open AI action
+        - name: Deploy the Open AI action
           uses: Azure/Sample-Chat-Completion-OpenAI-Infra@v2
           with:
             client-id: ${{ secrets.AZURE_CLIENT_ID }}
@@ -69,8 +68,3 @@ jobs:
 ## Output
 
 The action deploys an Open AI application to Azure and prints 2 URLs on the console at the end of the workflow. Click the backend URL to interact with the application in your browser.
-
-
-
-        
-
