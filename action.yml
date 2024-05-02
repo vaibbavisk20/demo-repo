@@ -97,7 +97,7 @@ runs:
           cd airepo/AOAISearchDemo
           Get-AzAccessToken -ResourceUrl "https://vault.azure.net"
           azd env new ${{ inputs.env-name }}
-          azd env set AZURE_ENV_NAME "${{ inputs.env-name }}"
+          azd env set AZURE_ENV_NAME ${{ inputs.env-name }}
           azd env set AZURE_LOCATION ${{ inputs.location }}
           azd env set AZURE_OPENAI_LOCATION ${{ inputs.openai-location }}
           azd env set AZURE_SUBSCRIPTION_ID ${{ inputs.subscription-id }}
