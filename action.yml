@@ -13,9 +13,6 @@ inputs:
   subscription-id:
     description: 'Subscription id to be used with your az login'
     required: true
-  resource-group-name:
-    description: 'Resource group to deploy your resources to'
-    required: true
   location:
     description: 'Location to deploy resources to'
     required: true
