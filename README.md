@@ -30,7 +30,7 @@ Use the name field from this link corresponding to desired location. [Azure Regi
 Create this workflow in your repo on this path: `.github/workflows/workflow_file.yml`
 
 ```yaml
-name: V2 Workflow to deploy OpenAI resource to Azure
+name: Workflow to deploy AI Powered Chat Completion infra to Azure
 
 on:
   push:
@@ -58,7 +58,7 @@ jobs:
           uses: actions/checkout@v3
           
         - name: Forked - Deploy a Open AI action
-          uses: vaibbavisk20/demo-repo
+          uses: Azure/Sample-Chat-Completion-OpenAI-Infra@v3
           with:
             client-id: ${{ secrets.AZURE_CLIENT_ID }}
             tenant-id: ${{ secrets.AZURE_TENANT_ID }}

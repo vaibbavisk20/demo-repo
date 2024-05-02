@@ -103,5 +103,5 @@ runs:
           azd env set AZURE_SUBSCRIPTION_ID ${{ inputs.subscription-id }}
           azd env set AZURE_PRINCIPAL_ID ${{ inputs.principal-id }}
           Get-AzContext -ListAvailable
-          # azd up --no-prompt -e ${{ inputs.env-name }}
+          azd up --no-prompt -e ${{ inputs.env-name }}
         azPSVersion: "latest"
