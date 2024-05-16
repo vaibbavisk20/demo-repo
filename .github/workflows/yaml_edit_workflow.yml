@@ -1,8 +1,12 @@
 name: 'Workflow to edit Yaml file'
 on:
-  push:
+  # push:
+  #   branches:
+  #     - main
+  pull_request:
     branches:
-      - master
+      - main
+  workflow_dispatch:
 
 permissions:
   id-token: write
