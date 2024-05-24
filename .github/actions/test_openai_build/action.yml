@@ -66,7 +66,7 @@ runs:
       shell: pwsh
 
     - name: 'Initialize azd repo and env'
-      run: azd init --agent-python-openai-prompty-langchain -e "new7"
+      run: azd init --template agent-python-openai-prompty-langchain -e "new7"
       working-directory: airepo
       env:
         AZURE_ENV_NAME: "new7"
