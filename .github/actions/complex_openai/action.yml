@@ -79,7 +79,7 @@ runs:
     - name: 'Update bot_config.yaml'
       uses: fjogeleit/yaml-update-action@main
       with:
-        valueFile: 'AOAISearchDemo/app/backend/bot_config.yaml'
+        valueFile: 'localAOAISearchDemo/app/backend/bot_config.yaml'
         commitChange: false
         changes: |
           {
@@ -96,7 +96,7 @@ runs:
     - name: 'Update azure.yaml to skip Connect-AzAccount step'
       uses: fjogeleit/yaml-update-action@main
       with:
-        valueFile: 'AOAISearchDemo/azure.yaml'
+        valueFile: 'localAOAISearchDemo/azure.yaml'
         commitChange: false
         changes: |
           {
