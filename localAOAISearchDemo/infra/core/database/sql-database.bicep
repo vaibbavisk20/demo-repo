@@ -1,5 +1,5 @@
-param sqlServerName string
 param sqlAdminLogin string = 'azureuser'
+param sqlServerName string
 
 @secure()
 param sqlAdminPassword string = newGuid()
@@ -16,6 +16,10 @@ param keyVaultName string = ''
 @description('Key Vault ID')
 param addKeysToVault bool = false
 
+param principal_id string
+param tenant_id string
+param principal_name string
+
 resource sqlServer 'Microsoft.Sql/servers@2022-08-01-preview' = {
   name: sqlServerName
   location: location
@@ -26,6 +30,17 @@ resource sqlServer 'Microsoft.Sql/servers@2022-08-01-preview' = {
     version: '12.0'
     minimalTlsVersion: '1.2'
     publicNetworkAccess: 'Enabled'
+  }
+}
+
+resource sqlAADLogin 'Microsoft.Sql/servers/administrators@2022-08-01-preview' = {
+  name: 'ActiveDirectory'
+  parent: sqlServer
+  properties: {
+    administratorType: 'ActiveDirectory'
+    login: principal_name
+    sid: principal_id
+    tenantId: tenant_id
   }
 }
 
@@ -48,9 +63,8 @@ module sqlConnectionStringSecret '../keyvault/keyvault-secret.bicep' = if(addKey
      'Server=tcp:',
      sqlServer.properties.fullyQualifiedDomainName, 
      ',1433;Database=', sqlDatabaseName, 
-     ';UiD=', sqlAdminLogin, 
-     ';Pwd=', sqlAdminPassword, 
-     ';Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;')
+     ';UiD=', principal_id, 
+     ';Encrypt=yes;Connection Timeout=30;Authentication=Active Directory MSI')
   }
 }
 

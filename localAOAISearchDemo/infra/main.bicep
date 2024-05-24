@@ -68,6 +68,8 @@ param formRecognizerSkuName string = 'S0'
 @description('Id of the user or app to assign application roles')
 param principalId string = ''
 
+param principalName string = ''
+
 var abbrs = loadJsonContent('abbreviations.json')
 var resourceToken = toLower(uniqueString(subscription().id, environmentName, location))
 var tags = { 'azd-env-name': environmentName }
@@ -439,6 +441,9 @@ module sql 'core/database/sql-database.bicep' = {
     location: location
     keyVaultName: keyVault.outputs.name
     addKeysToVault: true
+    principal_id: principalId
+    tenant_id: subscription().tenantId
+    principal_name: principalName
   }
   dependsOn: [
     keyVault
