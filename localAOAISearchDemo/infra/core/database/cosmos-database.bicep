@@ -53,7 +53,7 @@ resource sqlRoleDefinition 'Microsoft.DocumentDB/databaseAccounts/sqlRoleDefinit
   parent: account
   name: guid('sql-role-definition-', principalId, account.id)
   properties: {
-    roleName: 'Cosmos DB metadata reader and container creator role'
+    roleName: 'Cosmos DB metadata reader and container creator role1'
     type: 'CustomRole'
     assignableScopes: [
       account.id
