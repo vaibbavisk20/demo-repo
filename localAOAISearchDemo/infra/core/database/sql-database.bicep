@@ -25,6 +25,9 @@ resource sqlServer 'Microsoft.Sql/servers@2022-08-01-preview' = {
   location: location
   tags: tags
   properties: {
+    version: '12.0'
+    minimalTlsVersion: '1.2'
+    publicNetworkAccess: 'Enabled'
     administrators: {
       administratorType: 'ActiveDirectory'
       azureADOnlyAuthentication: true
@@ -33,9 +36,6 @@ resource sqlServer 'Microsoft.Sql/servers@2022-08-01-preview' = {
       sid: principal_id
       tenantId: tenant_id
     }
-    version: '12.0'
-    minimalTlsVersion: '1.2'
-    publicNetworkAccess: 'Enabled'
   }
 }
 
