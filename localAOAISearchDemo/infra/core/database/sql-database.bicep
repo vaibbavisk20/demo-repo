@@ -1,8 +1,4 @@
-param sqlAdminLogin string = 'azureuser'
 param sqlServerName string
-
-@secure()
-param sqlAdminPassword string = newGuid()
 
 param sqlDatabaseName string
 param databaseCollation string = 'SQL_Latin1_General_CP1_CI_AS'
