@@ -22,6 +22,11 @@ inputs:
   principal-id:
     description: 'FIC Service Principal ID'
     required: false
+  principal-name:
+    description: 'FIC Service Principal Name'
+    required: true
+
+  
 
 runs:
   using: 'composite'
