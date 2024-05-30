@@ -12,7 +12,7 @@
             "value": "${AZURE_PRINCIPAL_ID}"
         },
         "principalName": {
-            "value": "${AZURE_PRINCIPAL_NAME}"
+            "value": "${AZURE_APP_NAME}"
         },
         "openAiServiceName": {
             "value": "${AZURE_OPENAI_SERVICE}"
