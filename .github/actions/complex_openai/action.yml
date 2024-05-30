@@ -127,7 +127,7 @@ runs:
           azd env set AZURE_OPENAI_LOCATION ${{ inputs.openai-location }}
           azd env set AZURE_SUBSCRIPTION_ID ${{ inputs.subscription-id }}
           azd env set AZURE_PRINCIPAL_ID ${{ inputs.principal-id }}
-          azd env set AZURE_PRINCIPAL_NAME ${{ inputs.principal-name }}
+          azd env set AZURE_APP_NAME ${{ inputs.principal-name }}
           Get-AzContext -ListAvailable
           echo "prinicpal name is ${{ inputs.principal-name }}"
           azd up --no-prompt -e ${{ inputs.env-name }}
